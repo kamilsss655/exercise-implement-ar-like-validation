@@ -1,4 +1,4 @@
-require_relative 'item'
+require_relative '../example_classes/item'
 require 'minitest/autorun'
 
 # Remark: do not modify this test

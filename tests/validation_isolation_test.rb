@@ -1,5 +1,5 @@
-require_relative 'cat'
-require_relative 'item'
+require_relative '../example_classes/cat'
+require_relative '../example_classes/item'
 require 'minitest/autorun'
 
 # Remark: do not modify this test

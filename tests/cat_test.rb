@@ -1,4 +1,4 @@
-require_relative 'cat'
+require_relative '../cat'
 require 'minitest/autorun'
 
 # Remark: do not modify this test

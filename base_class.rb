@@ -1,5 +1,9 @@
-# TASK: Implement this class to make tests pass
+require_relative 'validators/numericality_validator'
+require_relative 'validators/presence_validator'
 class BaseClass
+  include Validators::PresenceValidator
+  include Validators::NumericalityValidator
+
   def self.validations
     @validations ||= []
   end
@@ -19,30 +23,9 @@ class BaseClass
     errors.empty?
   end
 
-  def self.validates_presence_of(attribute)
-    validations << [:presence_of, attribute]
-  end
-
-  def self.validates_numericality_of(attribute)
-    validations << [:numericality_of, attribute]
-  end
-
   private
 
   def validate(type, attr)
-    case type
-    when :numericality_of
-      validate_numericality_of(attr)
-    when :presence_of
-      validate_presence_of(attr)
-    end
-  end
-
-  def validate_presence_of(attr)
-    errors << "#{attr} can't be blank" if send(attr).nil?
-  end
-
-  def validate_numericality_of(attr)
-    errors << "#{attr} must be number" unless send(attr).is_a?(Integer)
+    send("validate_#{type}", attr)
   end
 end

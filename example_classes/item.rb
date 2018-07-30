@@ -1,4 +1,4 @@
-require_relative "base_class"
+require_relative '../base_class'
 
 # Warning: try to not modify this class at all
 # To test run: ruby item_test.rb
